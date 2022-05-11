@@ -42,7 +42,7 @@ public class EntrepreneurController {
 
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public EntrepreneurModel deleteEntrepreneurById(@PathVariable Long id, @RequestBody EntrepreneurModel entrepreneurModel) {
+    public EntrepreneurModel updateEntrepreneur(@PathVariable Long id, @RequestBody EntrepreneurModel entrepreneurModel) {
         log.info("Atualizando entrepeneur de id: {} -> Novo objeto {}", id, entrepreneurModel);
         return entrepreneurModel;
     }
