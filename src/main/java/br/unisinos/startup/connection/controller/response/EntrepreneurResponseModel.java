@@ -1,4 +1,4 @@
-package br.unisinos.startup.connection.model;
+package br.unisinos.startup.connection.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class EntrepreneurModel {
+public class EntrepreneurResponseModel {
     private String id;
     private String name;
     private Integer age;
     private String city;
     private String username;
-    private String password;
     private String mail;
 }
