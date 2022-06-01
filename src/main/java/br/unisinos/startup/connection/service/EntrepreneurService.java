@@ -1,5 +1,6 @@
 package br.unisinos.startup.connection.service;
 
+import br.unisinos.startup.connection.exception.EntrepreneurNotFound;
 import br.unisinos.startup.connection.model.EntrepreneurModel;
 import br.unisinos.startup.connection.repository.EntrepreneurRepository;
 import lombok.AllArgsConstructor;
@@ -30,9 +31,7 @@ public class EntrepreneurService {
 
     public EntrepreneurModel findEntrepreneurById(String id) {
         log.info("Service - Procurando entrepeneur de id: {}", id);
-        var entrepreneur = repository.findById(id).orElse(EntrepreneurModel.builder().build());
-
-        return entrepreneur;
+        return repository.findById(id).orElseThrow(() -> new EntrepreneurNotFound(id));
     }
 
     public List<EntrepreneurModel> findAllEntrepreneurs() {
