@@ -37,6 +37,8 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
+	compile 'org.mongodb:mongodb-driver:3.12.11'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 

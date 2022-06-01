@@ -18,7 +18,7 @@ public class ProjectController {
     @PostMapping(path = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ProjectResponseModel addProject(@RequestBody ProjectModel project) {
-        log.info("{}", project);
+        log.info("Created : {}", project);
         return ProjectResponseMapper.mapFrom(project);
     }
 
