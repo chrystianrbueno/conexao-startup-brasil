@@ -23,21 +23,21 @@ public class EntrepreneurController {
     @PostMapping(path = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public EntrepreneurResponseModel addEntrepreneurs(@RequestBody EntrepreneurModel entrepreneur) {
-        log.info("{}", entrepreneur);
+        log.info("Controller - Salvando entrepreneur {}", entrepreneur);
         return EntrepreneurResponseMapper.mapFrom(entrepreneurService.saveEntrepreneurs(entrepreneur));
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public EntrepreneurResponseModel findEntrepreneurById(@PathVariable String id) {
-        log.info("Procurando entrepeneur de id: {}", id);
+        log.info("Controller - Procurando entrepeneur de id: {}", id);
         return EntrepreneurResponseMapper.mapFrom(entrepreneurService.findEntrepreneurById(id));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<EntrepreneurResponseModel> findAllEntrepreneurs() {
-        log.info("Buscando todos entrepeneurs");
+        log.info("Controller - Buscando todos entrepeneurs");
         return EntrepreneurResponseMapper.mapListFrom(entrepreneurService.findAllEntrepreneurs());
     }
 
@@ -45,13 +45,13 @@ public class EntrepreneurController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEntrepreneurById(@PathVariable String id) {
         entrepreneurService.deleteEntrepreneurById(id);
-        log.info("Deletando entrepeneur de id: {}", id);
+        log.info("Controller - Deletando entrepeneur de id: {}", id);
     }
 
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public EntrepreneurResponseModel updateEntrepreneur(@PathVariable String id, @RequestBody EntrepreneurModel entrepreneurModel) {
-        log.info("Atualizando entrepeneur de id: {} -> Novo objeto {}", id, entrepreneurModel);
+        log.info("Controller - Atualizando entrepeneur de id: {} -> Novo objeto {}", id, entrepreneurModel);
         return EntrepreneurResponseMapper.mapFrom(entrepreneurService.updateEntrepreneur(id, entrepreneurModel));
     }
 }

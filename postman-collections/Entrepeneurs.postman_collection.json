@@ -78,7 +78,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\":1,\n    \"name\":\"Chrystian\",\n    \"age\":32,\n    \"city\":\"Eldorado do Sul\",\n    \"username\":\"chrystian\",\n    \"password\":\"teste\",\n    \"mail\":\"chrystianbr@edu.unisinos.br\"\n}",
+					"raw": "{\n    \"name\":\"Chrystian\",\n    \"age\":32,\n    \"city\":\"Eldorado do Sul\",\n    \"username\":\"chrystian\",\n    \"password\":\"teste\",\n    \"mail\":\"chrystianbr@edu.unisinos.br\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

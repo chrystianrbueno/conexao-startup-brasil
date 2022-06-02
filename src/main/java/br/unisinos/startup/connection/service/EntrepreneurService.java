@@ -1,6 +1,6 @@
 package br.unisinos.startup.connection.service;
 
-import br.unisinos.startup.connection.exception.EntrepreneurNotFound;
+import br.unisinos.startup.connection.exception.EntrepreneurNotFoundException;
 import br.unisinos.startup.connection.model.EntrepreneurModel;
 import br.unisinos.startup.connection.repository.EntrepreneurRepository;
 import lombok.AllArgsConstructor;
@@ -31,7 +31,7 @@ public class EntrepreneurService {
 
     public EntrepreneurModel findEntrepreneurById(String id) {
         log.info("Service - Procurando entrepeneur de id: {}", id);
-        return repository.findById(id).orElseThrow(() -> new EntrepreneurNotFound(id));
+        return repository.findById(id).orElseThrow(() -> new EntrepreneurNotFoundException(id));
     }
 
     public List<EntrepreneurModel> findAllEntrepreneurs() {
@@ -41,19 +41,15 @@ public class EntrepreneurService {
     }
 
     public void deleteEntrepreneurById(String id) {
-        try {
-            repository.deleteById(id);
-        } catch (Exception e) {
-            log.warn("Service - Entrepreneur de {} não deletado. Motivo: ", id, e);
-        }
 
+        repository.delete(findEntrepreneurById(id));
         log.info("Service - Deletado entrepeneur de id: {}", id);
     }
 
     public EntrepreneurModel updateEntrepreneur(String id, EntrepreneurModel entrepreneurModel) {
         var entrepreneurRepository = findEntrepreneurById(id);
 
-        if (Objects.equals(entrepreneurRepository,entrepreneurModel))
+        if (Objects.equals(entrepreneurRepository, entrepreneurModel))
             return entrepreneurModel;
 
         log.info("Service - Atualizado entrepeneur {} -> Novo objeto {}", entrepreneurRepository, entrepreneurModel);
