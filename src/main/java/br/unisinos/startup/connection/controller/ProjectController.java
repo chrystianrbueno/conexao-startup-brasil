@@ -43,7 +43,7 @@ public class ProjectController {
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProjectById(@PathVariable Long id) {
+    public void deleteProjectById(@PathVariable String id) {
         projectService.deleteProjectById(id);
         log.info("Controller - Deletando projeto de id: {}", id);
     }

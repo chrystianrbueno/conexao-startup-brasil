@@ -43,7 +43,7 @@ public class InvestorController {
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteInvestorById(@PathVariable Long id) {
+    public void deleteInvestorById(@PathVariable String id) {
         investorService.deleteInvestorById(id);
         log.info("Controller - Deletando investidor de id: {}", id);
     }
