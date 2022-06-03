@@ -19,4 +19,10 @@ public class InvestorResponseMapper {
                         .build()
         ).orElse(null);
     }
+
+    public static List<InvestorResponseModel> mapListFrom(List<InvestorModel> listInvestors) {
+        if (Objects.isNull(listInvestors))
+            return Collections.emptyList();
+        return listInvestors.stream().map(InvestorResponseMapper::mapFrom).collect(Collectors.toList());
+    }
 }
