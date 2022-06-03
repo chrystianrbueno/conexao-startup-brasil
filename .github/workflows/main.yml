@@ -1,0 +1,46 @@
+name: Gradle CI
+
+on: 
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+      
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Clean
+        run: ./gradlew clean
+
+  assemble:
+    runs-on: ubuntu-latest
+
+    needs: [clean]
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Assemble
+        run: ./gradlew assemble
+  
+  tests:
+    runs-on: ubuntu-latest
+
+    needs: [assemble]
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Tests
+        run: ./gradlew test
+
+  build:
+    runs-on: ubuntu-latest
+    
+    needs: [tests]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build
+        run: ./gradlew build -x test
