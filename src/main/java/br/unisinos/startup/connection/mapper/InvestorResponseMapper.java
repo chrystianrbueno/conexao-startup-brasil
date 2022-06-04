@@ -1,11 +1,13 @@
 package br.unisinos.startup.connection.mapper;
 
-import br.unisinos.startup.connection.controller.response.EntrepreneurResponseModel;
 import br.unisinos.startup.connection.controller.response.InvestorResponseModel;
-import br.unisinos.startup.connection.model.EntrepreneurModel;
 import br.unisinos.startup.connection.model.InvestorModel;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class InvestorResponseMapper {
     public static InvestorResponseModel mapFrom(InvestorModel investorResponseModel) {

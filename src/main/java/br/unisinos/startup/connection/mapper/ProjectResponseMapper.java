@@ -1,8 +1,6 @@
 package br.unisinos.startup.connection.mapper;
 
-import br.unisinos.startup.connection.controller.response.InvestorResponseModel;
 import br.unisinos.startup.connection.controller.response.ProjectResponseModel;
-import br.unisinos.startup.connection.model.InvestorModel;
 import br.unisinos.startup.connection.model.ProjectModel;
 
 import java.util.Optional;
