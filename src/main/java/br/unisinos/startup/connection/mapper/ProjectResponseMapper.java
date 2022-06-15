@@ -13,6 +13,7 @@ public class ProjectResponseMapper {
     public static ProjectResponseModel mapFrom(ProjectModel project) {
         return Optional.ofNullable(project).map(projectModel ->
                 ProjectResponseModel.builder()
+                        .id(project.getId())
                         .name(project.getName())
                         .status(project.getStatus())
                         .description(project.getDescription())

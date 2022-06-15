@@ -14,6 +14,7 @@ public class InvestorResponseMapper {
         return Optional.ofNullable(investorResponseModel).map(investor ->
                 InvestorResponseModel.builder()
                         .id(investor.getId())
+                        .username(investor.getUsername())
                         .name(investor.getName())
                         .age(investor.getAge())
                         .city(investor.getCity())
