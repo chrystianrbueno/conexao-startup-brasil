@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/v1/investor")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 public class InvestorController {
     
     private InvestorService investorService;

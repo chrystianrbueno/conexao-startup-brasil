@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/v1/entrepreneurs")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 public class EntrepreneurController {
 
     private EntrepreneurService entrepreneurService;

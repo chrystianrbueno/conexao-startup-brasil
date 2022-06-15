@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/v1/project")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 public class ProjectController {
     
     private ProjectService projectService;
