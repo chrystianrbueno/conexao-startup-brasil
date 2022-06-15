@@ -15,6 +15,7 @@ public class EntrepreneurResponseMapper {
                 EntrepreneurResponseModel.builder()
                         .id(entrepreneur.getId())
                         .name(entrepreneur.getName())
+                        .username(entrepreneur.getUsername())
                         .age(entrepreneur.getAge())
                         .city(entrepreneur.getCity())
                         .mail(entrepreneur.getMail())
