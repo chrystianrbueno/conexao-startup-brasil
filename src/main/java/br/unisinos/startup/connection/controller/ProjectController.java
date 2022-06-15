@@ -25,21 +25,21 @@ public class ProjectController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProjectResponseModel addProject(@RequestBody ProjectModel project) {
         log.info("Controller - Salvando project {}", project);
-        return ProjectResponseMapper.mapFrom(project);
+        return ProjectResponseMapper.mapFrom(projectService.saveProject(project));
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ProjectResponseModel findProjectById(@PathVariable Long id) {
+    public ProjectResponseModel findProjectById(@PathVariable String id) {
         log.info("Controller - Procurando projeto de id: {}", id);
-        return ProjectResponseMapper.mapFrom(ProjectModel.builder().build());
+        return ProjectResponseMapper.mapFrom(projectService.findProjectById(id));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<ProjectResponseModel> findAllProjects() {
         log.info("Controller - Buscando todos projetos");
-        return List.of(ProjectResponseMapper.mapFrom(ProjectModel.builder().build()));
+        return ProjectResponseMapper.mapListFrom(projectService.findAllProjects());
     }
 
     @DeleteMapping(path = "/{id}")
@@ -51,8 +51,8 @@ public class ProjectController {
 
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProjectResponseModel updateProject(@PathVariable Long id, @RequestBody ProjectModel projectModel) {
+    public ProjectResponseModel updateProject(@PathVariable String id, @RequestBody ProjectModel projectModel) {
         log.info("Controller - Atualizando projeto de id: {} -> Novo objeto {}", id, projectModel);
-        return ProjectResponseMapper.mapFrom(projectModel);
+        return ProjectResponseMapper.mapFrom(projectService.updateProject(id, projectModel));
     }
 }
